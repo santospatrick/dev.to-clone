@@ -4,13 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "emulators": "firebase emulators:start",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "firebase": "^8.4.3",
     "next": "10.2.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-firebase-hooks": "^3.0.4"
   },
   "devDependencies": {
     "@types/react": "^17.0.4",
