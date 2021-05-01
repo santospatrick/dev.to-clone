@@ -10,6 +10,7 @@ const theme = extendTheme({
       },
       body: {
         fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+        backgroundColor: "gray.100"
       },
       a: {
         color: "blue.500",
@@ -22,6 +23,9 @@ const theme = extendTheme({
       500: "#323232"
     },
   },
+  shadows: {
+    outline: "none"
+  }
 })
 
 export default theme

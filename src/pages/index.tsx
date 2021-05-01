@@ -1,7 +1,14 @@
-export default function Home() {
+import UserLayout from "@/layouts/UserLayout"
+import { Container } from "@chakra-ui/layout"
+
+function Home() {
   return (
-    <div>
+    <Container maxW="container.xl">
       Home
-    </div>
+    </Container>
   )
 }
+
+Home.Layout = UserLayout
+
+export default Home
