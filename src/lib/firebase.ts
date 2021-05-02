@@ -22,8 +22,17 @@ const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 const firestore = firebase.firestore();
 const storage = firebase.storage();
 
-if (process.env.NODE_ENV === 'development') {
-    firestore.useEmulator('localhost', 8080)
+if (typeof window !== 'undefined' && window.location.hostname === "localhost") {
+    firestore.useEmulator("localhost", 8080);
 }
 
-export { auth, googleAuthProvider, firestore, storage };
+function dataToJSON(doc: firebase.firestore.QueryDocumentSnapshot) {
+    const data = doc.data();
+    return {
+        ...data,
+        createdAt: data.createdAt.toMillis(),
+        updatedAt: data.updatedAt.toMillis(),
+    }
+}
+
+export { auth, googleAuthProvider, firestore, storage, dataToJSON };

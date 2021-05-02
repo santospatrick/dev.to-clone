@@ -5,7 +5,7 @@ import { auth } from '@/lib/firebase'
 import Loader from './Loader'
 
 function UserInfo() {
-    const { user, loading } = useAuth()
+    const { user, username, loading } = useAuth()
 
     if (loading) {
         return <Loader />
@@ -28,7 +28,11 @@ function UserInfo() {
                     <Button colorScheme="blue">
                         Write Posts
                     </Button>
-                    <Avatar src={user.photoURL} bgColor="gray.400" />
+                    <Link href={`/${username}`} passHref>
+                        <a>
+                            <Avatar src={user.photoURL} bgColor="gray.400" />
+                        </a>
+                    </Link>
                 </Stack>
             )}
         </>
