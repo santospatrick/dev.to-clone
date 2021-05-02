@@ -17,6 +17,8 @@ if (!firebase.apps.length) {
 }
 
 const auth = firebase.auth();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+
 const firestore = firebase.firestore();
 const storage = firebase.storage();
 
@@ -24,4 +26,4 @@ if (process.env.NODE_ENV === 'development') {
     firestore.useEmulator('localhost', 8080)
 }
 
-export { auth, firestore, storage };
+export { auth, googleAuthProvider, firestore, storage };
