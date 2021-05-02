@@ -1,5 +1,5 @@
-# Dev.to Clone
-> Dev.to blog clone made with Next.js + Firebase for studying purposes
+# `Dev.to` Clone
+> [`Dev.to`](https://dev.to/) blog clone made with Next.js + Firebase for studying purposes
 
 ## Setup
 
