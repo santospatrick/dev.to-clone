@@ -10,7 +10,7 @@
 yarn
 yarn emulators
 # another terminal tab
-yarn devemulators
+yarn dev
 ```
 
 ## Features
