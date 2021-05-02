@@ -22,7 +22,6 @@ const storage = firebase.storage();
 
 if (process.env.NODE_ENV === 'development') {
     firestore.useEmulator('localhost', 8080)
-    auth.useEmulator('http://localhost:9099')
 }
 
 export { auth, firestore, storage };
