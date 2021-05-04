@@ -28,7 +28,7 @@ export async function getServerSideProps({ query }) {
         .orderBy('createdAt', 'desc')
         .limit(5)
 
-    const posts = (await postsQuery.get()).docs.map(dataToJSON)
+    const posts = (await postsQuery.get()).docs.map(doc => doc.data())
     
     return {
         props: {

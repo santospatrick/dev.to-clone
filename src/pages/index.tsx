@@ -1,9 +1,9 @@
 import Loader from "@/components/Loader";
 import PostsFeed from "@/components/PostsFeed";
 import UserLayout from "@/layouts/UserLayout"
-import { firestore, fromMillis } from "@/lib/firebase";
+import { firestore } from "@/lib/firebase";
 import { Button } from "@chakra-ui/button";
-import { Container } from "@chakra-ui/layout"
+import { Box, Container } from "@chakra-ui/layout"
 import { useState } from "react";
 
 const LIMIT = 2;
@@ -33,7 +33,7 @@ function Home(props) {
   const getMorePosts = async () => {
     setLoading(true)
     const last = posts[posts.length - 1];
-    const cursor = typeof last.createdAt === 'number' ? fromMillis(last.createdAt) : last.createdAt;
+    const cursor = last.createdAt;
 
     const query = firestore
       .collectionGroup('posts')
@@ -56,11 +56,13 @@ function Home(props) {
     <Container maxW="container.xl">
       <PostsFeed posts={posts} />
 
-      {!loading && !postsEnd && <Button onClick={getMorePosts} colorScheme="blue">Load More</Button>}
+      <Box mt={6}>
+        {!loading && !postsEnd && <Button onClick={getMorePosts} colorScheme="blue">Load More</Button>}
 
-      {loading && <Loader />}
+        {loading && <Loader />}
 
-      {postsEnd && 'You have reached the end!'}
+        {postsEnd && 'You have reached the end!'}
+      </Box>
     </Container>
   )
 }
